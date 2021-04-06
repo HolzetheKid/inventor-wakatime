@@ -1,0 +1,14 @@
+﻿<Addin Type="Standard">
+    <!--Created for Autodesk Inventor Version 24.0-->
+    <ClassId>{91f0e9e2-cbdb-4287-8848-2674d9da29a1}</ClassId>
+    <ClientId>{91f0e9e2-cbdb-4287-8848-2674d9da29a1}</ClientId>
+    <DisplayName>WakatimeAddin</DisplayName>
+    <Description>WakatimeAddin</Description>
+    <Assembly>WakatimeInventorAddIn.dll</Assembly>
+    <LoadOnStartUp>1</LoadOnStartUp>
+    <UserUnloadable>1</UserUnloadable>
+    <Hidden>0</Hidden>
+    <SupportedSoftwareVersionGreaterThan>17..</SupportedSoftwareVersionGreaterThan>
+    <DataVersion>1</DataVersion>
+    <UserInterfaceVersion>1</UserInterfaceVersion>
+    </Addin>
