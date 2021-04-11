@@ -2,7 +2,7 @@
 using Inventor;
 using JetBrains.Annotations;
 using WakatimeInventorAddIn.InventorButton;
-using WakatimeInventorAddIn.Properties;
+using WakatimeInventorAddin.Properties;
 
 namespace WakatimeInventorAddIn
 {

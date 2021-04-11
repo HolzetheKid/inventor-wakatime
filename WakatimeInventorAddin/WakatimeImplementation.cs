@@ -12,11 +12,27 @@ namespace WakatimeInventorAddIn
 
         public WakatimeImplementation([NotNull] Application inventorApp) : base(inventorApp)
         {
+            Logger.Debug("Start Wakatime");
+            WakaTimeConfigFile.Debug = true;
+            //WakaTimeConfigFile.Proxy = null;
+            WakaTimeConfigFile.Save();
         }
 
         public override ILogService GetLogger()
         {
-            return new LogService(MyLogManager.Instance.GetCurrentClassLogger());
+
+            try
+            {
+                var currentClassLogger = MyLogManager.Instance.GetCurrentClassLogger();
+                return new LogService(currentClassLogger);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+           
+            //return null;
         }
 
         public override EditorInfo GetEditorInfo()
@@ -24,11 +40,8 @@ namespace WakatimeInventorAddIn
             var pluginVersion = typeof(WakatimeAddInServer).Assembly.GetName().Version;
             var inventorVersion = new Version(editorObj.SoftwareVersion.Major, editorObj.SoftwareVersion.Minor, editorObj.SoftwareVersion.BuildIdentifier);
 
-            return new EditorInfo()
+            return new EditorInfo("inventor-wakatime", "Wakatime for Inventor", pluginVersion)
             {
-                Name = editorObj.SoftwareVersion.ProductName,
-                PluginKey = "inventor-wakatime",
-                PluginVersion = pluginVersion,
                 Version = inventorVersion
             };
         }
@@ -58,7 +71,6 @@ namespace WakatimeInventorAddIn
 
         public override void Dispose(bool disposing)
         {
-          
         }
 
         public override IDownloadProgressReporter GetReporter()
@@ -72,12 +84,9 @@ namespace WakatimeInventorAddIn
             appEvents.OnDocumentChange += OnInventorDocumentChanged;
             appEvents.OnCloseDocument += OnInvenorDocumentClosed;
             appEvents.OnOpenDocument += OnInventorDocumentOpened;
-            
-            
+
             appEvents.OnActivateDocument += OnInventorDocumentActivate;
             appEvents.OnActivateView += OnActivateView;
-
-
         }
 
         private void OnActivateView(View viewobject, EventTimingEnum beforeorafter, NameValueMap context, out HandlingCodeEnum handlingcode)
@@ -85,8 +94,8 @@ namespace WakatimeInventorAddIn
             if (beforeorafter == EventTimingEnum.kAfter)
             {
                 var name = (editorObj.ActiveView as DesignViewRepresentation)?.Name;
-                
-                this.OnDocumentChanged(viewobject.Document.FullDocumentName+"|"+ name);
+
+                this.OnDocumentChanged(viewobject.Document.FullDocumentName + "|" + name);
                 handlingcode = HandlingCodeEnum.kEventHandled;
                 return;
             }

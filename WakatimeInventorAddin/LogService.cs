@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using NLog;
 using WakaTime;
 
@@ -13,7 +14,9 @@ namespace WakatimeInventorAddIn
         }
         public void Log(string message)
         {
+            Debug.WriteLine(message);
             logger.Debug(message);
         }
+        
     }
 }

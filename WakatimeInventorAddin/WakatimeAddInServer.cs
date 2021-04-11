@@ -1,6 +1,7 @@
 ﻿using Inventor;
 using JetBrains.Annotations;
 using System;
+using System.Net;
 using System.Runtime.InteropServices;
 using Attribute = System.Attribute;
 
@@ -15,9 +16,15 @@ namespace WakatimeInventorAddIn
 
         public void Activate(ApplicationAddInSite AddInSiteObject, bool FirstTime)
         {
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+            //var client2 = new WebClient();
+            ////client2.
+            //client2.DownloadFile(new Uri("https://github.com/wakatime/wakatime/archive/master.zip"), "C:\\Users\\holze\\AppData\\Local\\Temp\\wakatime-cli.zip");
+
+
             var inventorApp = AddInSiteObject.Application;
             wakatime = new WakatimeImplementation(inventorApp);
-            
+
             if (FirstTime)
             {
                 CreateWakaTimeRibbonPanel(GetAddInId(), inventorApp);

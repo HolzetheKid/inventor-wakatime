@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WakatimeInventorAddIn.Properties {
+namespace WakatimeInventorAddin.Properties {
     using System;
     
     

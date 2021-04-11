@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WakatimeInventorAddin", "WakatimeInventorAddin\WakatimeInventorAddin.csproj", "{4C0D9F7B-77D9-4034-819E-F4020D08818F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{69F121E2-9376-404A-9220-98D565D5C121}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WakaTime", "..\..\Users\holze\source\repos\wakatime-sharp\src\WakaTime\WakaTime.csproj", "{F4ECD28E-10C4-4827-B6AB-ABAB98E0A4FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4C0D9F7B-77D9-4034-819E-F4020D08818F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C0D9F7B-77D9-4034-819E-F4020D08818F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C0D9F7B-77D9-4034-819E-F4020D08818F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F121E2-9376-404A-9220-98D565D5C121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F121E2-9376-404A-9220-98D565D5C121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F121E2-9376-404A-9220-98D565D5C121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F121E2-9376-404A-9220-98D565D5C121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4ECD28E-10C4-4827-B6AB-ABAB98E0A4FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4ECD28E-10C4-4827-B6AB-ABAB98E0A4FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4ECD28E-10C4-4827-B6AB-ABAB98E0A4FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4ECD28E-10C4-4827-B6AB-ABAB98E0A4FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
