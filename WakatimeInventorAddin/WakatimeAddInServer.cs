@@ -1,6 +1,7 @@
 ﻿using Inventor;
 using JetBrains.Annotations;
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
 using Attribute = System.Attribute;
@@ -59,20 +60,28 @@ namespace WakatimeInventorAddIn
                 var ribbons = application.UserInterfaceManager.Ribbons;
                 RibbonTab ribbonTab;
                 var ribbonName = "ZeroDoc";
-                var idTabWakatime = "id_Tab_Wakatime";
+                //var /*idTabWakatime*/ = "id_Tab_Wakatime";
+                var idTabTools = "id_TabTools";
 
-                if (!RibbonTabExists(application.UserInterfaceManager, ribbonName, idTabWakatime))
+              
+
+                if (!RibbonTabExists(application.UserInterfaceManager, ribbonName, idTabTools))
                 {
                     ribbonTab = ribbons[ribbonName].RibbonTabs.Add("WakaTime", TabInternalName, addinId);
 
                 }
                 else
                 {
-                    ribbonTab = ribbons[ribbonName].RibbonTabs[idTabWakatime];
+                    ribbonTab = ribbons[ribbonName].RibbonTabs[idTabTools];
 
                 }
 
-                if (RibbonPanelExists(application.UserInterfaceManager, ribbonName, TabInternalName, PanelInternalName)) return;
+                foreach (RibbonTab ribbon in ribbons[ribbonName].RibbonTabs)
+                {
+                    Debug.WriteLine(ribbon.InternalName+ "|"+ ribbon.DisplayName);
+                }
+
+                if (RibbonPanelExists(application.UserInterfaceManager, ribbonName, idTabTools, PanelInternalName)) return;
 
                 var panel = ribbonTab.RibbonPanels.Add("WakaTime", PanelInternalName, "{0e75678f-f093-4631-8c23-368bf96460e6}", "", false);
 
